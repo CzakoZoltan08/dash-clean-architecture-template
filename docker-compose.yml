@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  clean-dash:
+    build:
+      context: .
+    image: clean-dash:$VERSION
+    container_name: clean-dash
+    ports:
+      - "8084:8085"
+    environment:
+      - TARGET=$TARGET
+    restart: unless-stopped
