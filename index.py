@@ -1,4 +1,4 @@
-from app import app
+from app import app, server
 
 from routes import render_page_content
 
