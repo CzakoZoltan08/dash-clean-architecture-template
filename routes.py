@@ -4,7 +4,7 @@ from dash.dependencies import Input, Output
 
 from app import app
 
-from constants import home_page_location, wine_page_location, iris_page_location
+from utils.constants import home_page_location, wine_page_location, iris_page_location
 
 from pages.home import home
 from pages.gdpr import gdpr

@@ -1,7 +1,7 @@
 import dash_bootstrap_components as dbc
 import dash_html_components as html
 
-from constants import home_page_location, wine_page_location, iris_page_location
+from utils.constants import home_page_location, wine_page_location, iris_page_location
 
 
 # we use the Row and Col components to construct the sidebar header

@@ -5,7 +5,7 @@ import plotly.express as px
 import pandas as pd
 
 from app import app, cache
-from constants import TIMEOUT
+from utils.constants import TIMEOUT
 
 
 @app.callback(

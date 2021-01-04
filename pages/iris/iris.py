@@ -4,6 +4,8 @@ import dash_html_components as html
 
 from pages.iris.iris_callbacks import dataframe, make_graph
 
+from components.table import make_dash_table
+
 
 controls = dbc.Card(
     [
@@ -52,6 +54,11 @@ layout = dbc.Container(
             ],
             align="center",
         ),
+        html.Hr(),
+        dbc.Row(
+            dbc.Col(make_dash_table(dataframe()), width={"size": 8, "offset": 3}),
+            align="center",
+        )
     ],
     fluid=True,
 )
