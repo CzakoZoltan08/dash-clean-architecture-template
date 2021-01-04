@@ -3,13 +3,11 @@ from dash.dependencies import Input, Output
 
 import plotly.graph_objs as go
 import plotly.express as px
-import pandas as pd
 
-from app import app, cache
-from utils.constants import TIMEOUT
-
-from sklearn import datasets
 from sklearn.cluster import KMeans
+
+from app import app
+from pages.iris.iris_data import dataframe
 
 
 @app.callback(
@@ -72,13 +70,3 @@ app.callback(Output("x-variable", "options"), [Input("y-variable", "value")])(
 app.callback(Output("y-variable", "options"), [Input("x-variable", "value")])(
     filter_options
 )
-
-@cache.memoize(timeout=TIMEOUT)
-def query_data():
-    # This could be an expensive data querying step
-    iris_raw = datasets.load_iris()
-    iris = pd.DataFrame(iris_raw["data"], columns=iris_raw["feature_names"])
-    return iris.to_json(date_format='iso', orient='split')
-
-def dataframe():    
-    return pd.read_json(query_data(), orient='split')

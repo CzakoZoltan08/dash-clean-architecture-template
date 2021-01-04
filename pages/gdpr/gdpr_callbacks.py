@@ -2,10 +2,9 @@
 from dash.dependencies import Input, Output
 
 import plotly.express as px
-import pandas as pd
 
-from app import app, cache
-from utils.constants import TIMEOUT
+from app import app
+from pages.gdpr.gdpr_data import dataframe
 
 
 @app.callback(
@@ -22,12 +21,3 @@ def update_figure(selected_year):
     fig.update_layout(transition_duration=500)
 
     return fig
-
-@cache.memoize(timeout=TIMEOUT)
-def query_data():
-    # This could be an expensive data querying step
-    gdpr_data = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv')
-    return gdpr_data.to_json(date_format='iso', orient='split')
-
-def dataframe():
-    return pd.read_json(query_data(), orient='split')
