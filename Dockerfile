@@ -12,6 +12,4 @@ ENV ENVIRONMENT_FILE=".env"
 
 EXPOSE 8085
 
-#CMD ["python", "./index.py"]
-
 ENTRYPOINT ["gunicorn", "--config", "gunicorn_config.py", "index:server"]
