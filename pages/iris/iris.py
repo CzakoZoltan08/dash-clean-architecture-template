@@ -2,7 +2,6 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 
-from pages.iris.iris_callbacks import make_graph
 from pages.iris.iris_data import dataframe
 
 from components.table import make_dash_table
