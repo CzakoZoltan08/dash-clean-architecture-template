@@ -1,11 +1,11 @@
 import dash_core_components as dcc
 import dash_html_components as html
 
-from pages.gdpr.gdpr_data import dataframe
+from pages.gdp.gdp_data import dataframe
 
 
 layout = html.Div([
-    html.H1("GDPR viewer"),
+    html.H1("GDP viewer"),
     html.Hr(),
     dcc.Graph(id='graph-with-slider'),
     dcc.Slider(
